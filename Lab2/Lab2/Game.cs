@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Lab2
 {
     class Game
     {
-         Item[] items;
+        protected Item[] items;
         public int Length
         {
             get 
@@ -16,6 +17,8 @@ namespace Lab2
                 return Convert.ToInt32(Math.Sqrt(items.Length)); 
             }
         }
+
+        public Game() { }
         public Game (int el1,int el2, int el3, int el4, int el5,int el6,int el7,int el8,int el9)
         {
             items = new Item[] 
@@ -34,7 +37,8 @@ namespace Lab2
             };
         }
 
-        public Game(int el1, int el2, int el3, int el4, int el5, int el6, int el7, int el8, int el9, int el10, int el11, int el12, int el13, int el14, int el15, int el16)
+        public Game(int el1, int el2, int el3, int el4, int el5, int el6, int el7, int el8,
+            int el9, int el10, int el11, int el12, int el13, int el14, int el15, int el16)
         {
             items = new Item[] 
             {
@@ -96,6 +100,49 @@ namespace Lab2
             return -1;
         }
 
+        public int GetSum(int value)
+        {
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (items[i].value == value)
+                {
+                    return items[i].point.x + items[i].point.y;
+                }
+            }
+            return -1;
+        }
+
+        public void Shift (int value)
+        {
+            try
+            {
+                if (value < 0 || value > 15) { throw new ArgumentException(); }
+                if (Math.Abs(GetSum(value) - GetSum(0)) == 1)
+                {
+                    int tmp;
+                    int valueLoction = GetLocation(value);
+                    int zeroLocation = GetLocation(0);
+                    tmp = items[zeroLocation].value;
+                    items[zeroLocation].value = items[valueLoction].value;
+                    items[valueLoction].value = tmp;
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine("Нет такого числа. ");
+                Console.WriteLine();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Некуда двигать. " );
+                Console.WriteLine();
+            }
+          
+        }
 
     }
 }
