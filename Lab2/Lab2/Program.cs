@@ -14,7 +14,7 @@ namespace Lab2
            // Game game3 = new Game(7, 8, 0, 2, 3, 1, 4, 6, 5, 9, 10, 11, 12, 13, 14, 15);
             Game3 game4 = new Game3(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 0, 15);
          //   Game2 game = new Game2();
-            //   game4.RandomValues();
+              game4.RandomValues();
             Console.WriteLine("***** Игра в 15 ****");
             Console.WriteLine();
             game4.Print();
@@ -41,7 +41,7 @@ namespace Lab2
                                 Console.WriteLine("Вы прошли игру");
                                 break;
                             }
-                         Console.WriteLine("1 - Отменить шаг, 2 - продолжить игру");
+                         Console.WriteLine("1 - Отменить перемещение, 2 - продолжить игру");
                          try
                          {
                              int keys = Convert.ToInt16(Console.ReadLine());
