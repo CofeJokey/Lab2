@@ -10,7 +10,7 @@ namespace Lab2
     class Game
     {
         public int Lenght = 0;
-        protected Item[] items;
+        public Item[] items;
         public int Length
         {
             get
@@ -20,7 +20,17 @@ namespace Lab2
         }
 
         public Game() { }
-       
+        //public Game(params int [] Newlist) 
+        //{int ForList=0;
+        //for (int i=0; i< 4;i++)
+        //{
+        //    for (int j=0; j< 4;j++)
+        //    {
+        //        items[ForList] = new Item(Newlist[ForList], i, j);
+        //        ForList++;
+        //    }
+        //}
+        //}
 
         public Game(int el1, int el2, int el3, int el4, int el5, int el6, int el7, int el8,
             int el9, int el10, int el11, int el12, int el13, int el14, int el15, int el16)
@@ -73,10 +83,6 @@ namespace Lab2
             Console.WriteLine();
         }
 
-        //public Point GetLoc(int value)
-        //{
-        //    return ItemsValue[value];
-        //}
 
 
         public int GetLocation(int value)
@@ -110,7 +116,7 @@ namespace Lab2
         //    return true;
         //}
 
-        public void Shift (int value)
+        public void Shift(int value, Game3 games)
         {
             try
             {
@@ -123,6 +129,7 @@ namespace Lab2
                     tmp = items[zeroLocation].value;
                     items[zeroLocation].value = items[valueLoction].value;
                     items[valueLoction].value = tmp;
+                    games.History(value);
                 }
                 else
                 {
