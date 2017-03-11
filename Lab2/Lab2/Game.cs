@@ -9,33 +9,18 @@ namespace Lab2
 {
     class Game
     {
+        public int Lenght = 0;
         protected Item[] items;
         public int Length
         {
-            get 
+            get
             {
                 return Convert.ToInt32(Math.Sqrt(items.Length)); 
             }
         }
 
         public Game() { }
-        public Game (int el1,int el2, int el3, int el4, int el5,int el6,int el7,int el8,int el9)
-        {
-            items = new Item[] 
-            {
-                new Item(el1,0,0),
-                new Item(el2,0,1),
-                new Item(el3,0,2),
-
-                new Item(el4,1,0),
-                new Item(el5,1,1),
-                new Item(el6,1,2),
-
-                new Item(el7,2,0),
-                new Item(el8,2,1),
-                new Item(el9,2,2)
-            };
-        }
+       
 
         public Game(int el1, int el2, int el3, int el4, int el5, int el6, int el7, int el8,
             int el9, int el10, int el11, int el12, int el13, int el14, int el15, int el16)
@@ -87,7 +72,13 @@ namespace Lab2
             }
             Console.WriteLine();
         }
-        
+
+        //public Point GetLoc(int value)
+        //{
+        //    return ItemsValue[value];
+        //}
+
+
         public int GetLocation(int value)
         {
             for (int i=0;i<items.Length;i++)
@@ -112,6 +103,13 @@ namespace Lab2
             return -1;
         }
 
+        //public Boolean finish() 
+        //{
+        //    int a = 0;
+        //    int b = 0;
+        //    return true;
+        //}
+
         public void Shift (int value)
         {
             try
@@ -131,12 +129,12 @@ namespace Lab2
                     throw new Exception();
                 }
             }
-            catch (ArgumentException e)
+            catch (ArgumentException)
             {
                 Console.WriteLine("Нет такого числа. ");
                 Console.WriteLine();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine("Некуда двигать. " );
                 Console.WriteLine();

@@ -32,9 +32,11 @@ namespace Lab2
         }
         static void Main(string[] args)
         {
-            Game game5 = new Game(7, 8, 0, 2, 3, 1, 4, 6, 5, 9, 10, 11, 12, 13, 14, 15);
-
+            Game game3 = new Game(7, 8, 0, 2, 3, 1, 4, 6, 5, 9, 10, 11, 12, 13, 14, 15);
+            Game game5 = new Game(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 0, 15);
             Game2 game4 = new Game2();
+            Console.WriteLine("***** Игра в 15 ****");
+            Console.WriteLine();
             game4.Print();
             while (true)
             {
@@ -49,10 +51,15 @@ namespace Lab2
                     switch (key)
                     {
                         case 1:
-                           // Console.WriteLine("Двигаайте цифру");
-                           // game4.Shift(Convert.ToInt16(Console.ReadLine()));
-                           // game4.Print();
+                            Console.WriteLine("Двигайте цифру");
+                            game4.Shift(Convert.ToInt16(Console.ReadLine()));
+                            game4.Print();
                             Play(game4);
+                            //if (game4.Finish())
+                            //{
+                            //    Console.WriteLine("Вы выйгарли");
+
+                            //}
                             break;
                         case 6:
                             Environment.Exit(0);
